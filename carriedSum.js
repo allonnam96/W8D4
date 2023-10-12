@@ -13,3 +13,6 @@ function sumThree(num1, num2, num3) {
   
   // or more briefly:
   sumThree.curry(3)(4)(20)(6); // == 30
+
+  const sum = curriedSum(4);
+sum(5)(30)(20)(1); // => 56
