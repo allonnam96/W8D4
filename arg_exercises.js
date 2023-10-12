@@ -1,8 +1,4 @@
-function sum(...args) {
-  return args.reduce((acc, currentNum) => acc + currentNum);
-}
 
-// console.log(sum(10,5,2))
 
 Function.prototype.myBind = function (context, ...bindArgs){ //args = bind time args
   let that = this;
@@ -41,7 +37,7 @@ markov.says("meow", "Ned");
 // console.log(boundFunction);
 
 // bind time args are "meow" and "Kush", no call time args
-markov.says.myBind(pavlov, ();"meow", "Kush")
+markov.says.myBind(pavlov, "meow", "Kush")();
 // Pavlov says meow to Kush!
 // true
 
