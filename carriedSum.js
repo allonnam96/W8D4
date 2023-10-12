@@ -30,8 +30,31 @@ function curriedSum(num) {
   return _curriedSum
 }
 
-const sum = curriedSum(4);
+// const sum = curriedSum(4);
 // sum(5)(30)(20)(1); // => 56
-console.log(sum(5)(30)(20)(1))
+// console.log(sum(5)(30)(20)(1))
 
+Function.prototype.curry = function (numArgs) {
+    const originalFunc = this
+    const args = [];
 
+    function _curryfunc(arg) {
+        args.push(arg)
+
+        if (args.length === numArgs) {
+            return originalFunc(...args);
+          } else {
+            return _curryfunc
+          }
+    }
+        return _curryfunc
+}
+
+function add(str1, str2, str3) {
+    return str1+ str2+ str3
+}
+
+const curried_add = add.curry(3)
+console.log(curried_add("a"))
+console.log(curried_add("c"))
+console.log(curried_add("e"))
