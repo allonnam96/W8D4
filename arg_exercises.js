@@ -32,20 +32,19 @@ class Dog {
 const markov = new Cat("Markov");
 const pavlov = new Dog("Pavlov");
 
+
 markov.says("meow", "Ned");
 // Markov says meow to Ned!
 // true
 
-const boundFunction = markov.says.myBind(markov);
-console.log(boundFunction);
+// const boundFunction = markov.says.myBind(markov);
+// console.log(boundFunction);
 
 // bind time args are "meow" and "Kush", no call time args
-markov.says.myBind(pavlov, "meow", "Kush")();
+markov.says.myBind(pavlov, ();"meow", "Kush")
 // Pavlov says meow to Kush!
 // true
 
-const boundFunction2 = pavlov.says.myBind(pavlov, "meow", "Kush")
-console.log(boundFunction2);
 
 // no bind time args (other than context), call time args are "meow" and "a tree"
 markov.says.myBind(pavlov)("meow", "a tree");
